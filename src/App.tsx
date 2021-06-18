@@ -9,7 +9,7 @@ function App() {
   return (
       <div className="App">
         <Header />
-        <h1> Custom React CSS Navbar </h1>
+        <ContactDetail />
         <FooterNavbar />
       </div>
   );
