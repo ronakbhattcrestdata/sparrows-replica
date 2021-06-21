@@ -2,10 +2,11 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import BottomNavigation from "@material-ui/core/BottomNavigation";
 import BottomNavigationAction from "@material-ui/core/BottomNavigationAction";
-import RestoreIcon from "@material-ui/icons/Restore";
 import NotificationsNoneIcon from "@material-ui/icons/NotificationsNone";
 import ContactBook from "@material-ui/icons/LibraryBooksOutlined";
 import UserIcon from "@material-ui/icons/AccountCircle";
+import HomeIcon from '@material-ui/icons/Home';
+import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles({
   stickToBottom: {
@@ -32,19 +33,23 @@ export default function LabelBottomNavigation() {
 
   return (
     <div className={classes.stickToBottom}>
-      <BottomNavigation
+      {<BottomNavigation
         value={value}
         onChange={handleChange}
         className={classes.actionItemStyles}
       >
         <BottomNavigationAction
+          component={Link}
+          to="/"
           classes={{
             root: classes.actionItemStyles,
             selected: classes.selected,
           }}
-          icon={<RestoreIcon />}
+          icon={<HomeIcon />}
         />
         <BottomNavigationAction
+          component={Link}
+          to="/contacts"
           classes={{
             root: classes.actionItemStyles,
             selected: classes.selected,
@@ -52,6 +57,8 @@ export default function LabelBottomNavigation() {
           icon={<ContactBook />}
         />
         <BottomNavigationAction
+          component={Link}
+          to="/notifications"
           classes={{
             root: classes.actionItemStyles,
             selected: classes.selected,
@@ -65,7 +72,7 @@ export default function LabelBottomNavigation() {
           }}
           icon={<UserIcon />}
         />
-      </BottomNavigation>
+      </BottomNavigation>}
     </div>
   );
 }
